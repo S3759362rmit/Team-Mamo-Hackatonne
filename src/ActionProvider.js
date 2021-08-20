@@ -8,11 +8,22 @@ class ActionProvider {
     greet() {
         const greetingMessage = this.createChatBotMessage("Hi, friend.")
         this.updateChatbotState(greetingMessage)
-    }
+    };
 
     handleNutrition = () => {
         const message = this.createChatBotMessage(
             "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:",
+            {
+                // widget: "javascriptLinks",
+            }
+        );
+
+        this.updateChatbotState(message);
+    };
+
+    handleRecipe = () => {
+        const message = this.createChatBotMessage(
+            "Fantastic, now just tell me what you want to cook:",
             {
                 // widget: "javascriptLinks",
             }
