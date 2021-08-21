@@ -1,5 +1,6 @@
 import getNutrition from "./components/nutritionAPI";
 import getRecipe from "./components/recipeAPI";
+import MessageParser from "./MessageParser";
 
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
@@ -20,6 +21,8 @@ class ActionProvider {
             }
         );
 
+        this.handleNutriQuery();
+        MessageParser.setState("nutrition");
         this.updateChatbotState(message);
 
     };
@@ -38,7 +41,8 @@ class ActionProvider {
         const message = this.createChatBotMessage(
             "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
 
-        this.handleRecipeQuery();
+        this.handleRecipeQuery("recipe");
+        MessageParser.setState("recipe");
         this.updateChatbotState(message);
     };
 
