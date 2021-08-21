@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useState } from "react";
 const API_URL = "https://trackapi.nutritionix.com/v2/natural/nutrients"
 
 // used for debug

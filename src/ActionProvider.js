@@ -1,5 +1,5 @@
-import getNutrition from "./components/nutritionAPI"
-import getRecipe from "./components/getRecipe"
+import getNutrition from "./components/nutritionAPI";
+import getRecipe from "./components/recipeAPI";
 
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
@@ -32,20 +32,16 @@ class ActionProvider {
 
     handleRecipe() {
 
-        const message = this.createChatBotMessage("1");
+        const message = this.createChatBotMessage(
+            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
 
         this.updateChatbotState(message);
     };
 
     handleRecipeQuery(query) {
-        const reply = getRecipe(query);
-        const message = this.createChatBotMessage(reply,
-            {
-                // widget: "javascriptLinks",
-            }
-        );
-
-        this.updateChatbotState(message);
+        getRecipe(query).then(res => {
+            this.updateChatbotState(this.createChatBotMessage(res));
+        });
     }
 
     handleReturn = () => {
