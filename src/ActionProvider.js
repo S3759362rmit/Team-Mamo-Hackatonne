@@ -1,3 +1,6 @@
+import getNutrition from "./components/nutritionAPI"
+import getRecipe from "./components/getRecipe"
+
 class ActionProvider {
     constructor(createChatBotMessage, setStateFunc) {
         this.createChatBotMessage = createChatBotMessage;
@@ -10,32 +13,59 @@ class ActionProvider {
         this.updateChatbotState(greetingMessage)
     };
 
-    handleNutrition = () => {
+    handleNutrition() {
         const message = this.createChatBotMessage(
-            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:",
+            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
+
+        this.updateChatbotState(message);
+
+    };
+
+    handleNutriQuery(query) {
+
+        getNutrition(query).then(res => {
+            this.updateChatbotState(this.createChatBotMessage(res));
+
+        });
+    };
+
+
+    handleRecipe() {
+
+        const message = this.createChatBotMessage("1");
+
+        this.updateChatbotState(message);
+    };
+
+    handleRecipeQuery(query) {
+        const reply = getRecipe(query);
+        const message = this.createChatBotMessage(reply,
             {
                 // widget: "javascriptLinks",
             }
         );
 
         this.updateChatbotState(message);
-    };
+    }
 
-    handleRecipe = () => {
+    handleReturn = () => {
         const message = this.createChatBotMessage(
-            "Fantastic, now just tell me what you want to cook:",
+            "Very well. What else can I do for you?",
             {
-                // widget: "javascriptLinks",
+                widget: "ChatOptions",
             }
         );
 
         this.updateChatbotState(message);
-    };
+    }
 
 
     updateChatbotState(message) {
 
-        // NOTE: This function is set in the constructor, and is passed in      // from the top level Chatbot component. The setState function here     // actually manipulates the top level state of the Chatbot, so it's     // important that we make sure that we preserve the previous state.
+        // NOTE: This function is set in the constructor, and is passed in      
+        // from the top level Chatbot component. The setState function here     
+        // actually manipulates the top level state of the Chatbot, so it's     
+        // important that we make sure that we preserve the previous state.
 
 
         this.setState(prevState => ({
