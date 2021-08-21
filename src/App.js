@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chatbot from 'react-chatbot-kit'
 import './App.css';
 
@@ -7,6 +7,8 @@ import MessageParser from './MessageParser';
 import config from './config';
 
 function App() {
+  // const [chatState, setChatState] = useState("initial");
+
   return (
     <div className="App">
       <header className="App-header">
