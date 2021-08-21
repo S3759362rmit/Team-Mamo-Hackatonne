@@ -31,12 +31,12 @@ const getRecipe = (query) => {
             const recipes = reply.hits;
 
             let result = [];
-            result = recipes.map(recipe => {
-            return recipe["recipe"]["label"] + "\n\n"});
+            recipes.map(recipe => {
+            return result.push(recipe["recipe"]["label"])});
             return result;
         }
         else {
-            return "Sorry, I didn't get that, please try again.";
+            return "Sorry, I didn't get that. Please tell me again.";
         }
 
     };

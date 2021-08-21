@@ -6,9 +6,6 @@ const ChatOptions = (props) => {
     const options = [
         { text: "Nutrition Facts", handler: props.actionProvider.handleNutrition, id: 1 },
         { text: "Recipe Recommendation", handler: props.actionProvider.handleRecipe, id: 2 },
-        // { text: "APIs", handler: () => { }, id: 3 },
-        // { text: "Security", handler: () => { }, id: 4 },
-        // { text: "Interview prep", handler: () => { }, id: 5 },
     ];
 
     const optionsMarkup = options.map((option) => (

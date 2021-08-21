@@ -9,13 +9,13 @@ class ActionProvider {
     }
 
     greet() {
-        const greetingMessage = this.createChatBotMessage("Hi, friend.")
+        const greetingMessage = this.createChatBotMessage("Hello there, my friend.")
         this.updateChatbotState(greetingMessage)
     };
 
     handleNutrition = () => {
         const message = this.createChatBotMessage(
-            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:",
+            "Awesome! Tell me the ingredients you want to know about, and I will show you their nutrient composition.",
             {
                 // widget: "javascriptLinks",
             }
@@ -24,14 +24,12 @@ class ActionProvider {
         this.handleNutriQuery();
         MessageParser.setState("nutrition");
         this.updateChatbotState(message);
-
     };
 
     handleNutriQuery(query) {
 
         getNutrition(query).then(res => {
-            this.updateChatbotState(this.createChatBotMessage(res));
-
+            this.updateChatbotState(this.createChatBotMessage(`Here are the nutrition facts for ${query}: \n` + res));
         });
     };
 
@@ -39,7 +37,7 @@ class ActionProvider {
     handleRecipe = () => {
 
         const message = this.createChatBotMessage(
-            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
+            "Great! Tell me the ingredients you have on hand, and I will show you recipes that you can make.");
 
         this.handleRecipeQuery("recipe");
         MessageParser.setState("recipe");
@@ -50,10 +48,10 @@ class ActionProvider {
         if(query !== "recipe")
         {
             getRecipe(query).then(res => {
-                this.updateChatbotState(this.createChatBotMessage(res));
+                this.updateChatbotState(this.createChatBotMessage(`Here are some recipes you can make with ${query}: \n` + res.join(" , ")));
             });
         }
-    }
+    };
 
     handleReturn = () => {
         const message = this.createChatBotMessage(
@@ -67,7 +65,7 @@ class ActionProvider {
     }
 
 
-    updateChatbotState(message) {
+    updateChatbotState(message){
 
         // NOTE: This function is set in the constructor, and is passed in      
         // from the top level Chatbot component. The setState function here     

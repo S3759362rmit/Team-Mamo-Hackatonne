@@ -4,21 +4,25 @@ import { createChatBotMessage } from "react-chatbot-kit";
 
 import ChatOptions from "./components/ChatOptions";
 
-
 const config = {
-    botName: "LearningBot",
+    botName: "Foory",
     initialMessages: [
-        createChatBotMessage("Hi, I'm here to help. What do you want to learn?", {
+        createChatBotMessage("Hi, I'm Foory! What would you like to know?", {
             widget: "ChatOptions",
         }),
     ],
+    customComponents: {
+        // Replaces the default bot avatar
+        botAvatar: (props) => {return <div class="react-chatbot-kit-chat-bot-avatar-container">F</div>},
+    },
     customStyles: {
         botMessageBox: {
-            backgroundColor: "#376B7E",
+            backgroundColor: "#1B99AF",
         },
         chatButton: {
-            backgroundColor: "#376B7E",
+            backgroundColor: "#1B99AF",
         },
+
     },
     widgets: [
         {

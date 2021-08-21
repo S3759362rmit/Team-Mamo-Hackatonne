@@ -49,21 +49,21 @@ const getNutrition = (query) => {
             const food = reply.foods[0];
 
             let reply_str = ""
-            reply_str += food.serving_qty + " " + food.serving_unit + " of " + food.food_name + "\n";
-            reply_str += "weight: " + food.serving_weight_grams + " g contain:\n";
-            reply_str += "calories: " + food.nf_calories + " kJ\n";
-            reply_str += "total fat: " + food.nf_total_fat + " g\n";
-            reply_str += "saturated fat: " + food.nf_saturated_fat + " g\n";
-            reply_str += "protein: " + food.nf_protein + " g\n";
-            reply_str += "sugars: " + food.nf_sugars + " g\n";
-            reply_str += "total carbohydrate: " + food.nf_total_carbohydrate + " g\n";
-            reply_str += "dietary fiber: " + food.nf_dietary_fiber + " g\n";
-            reply_str += "cholesterol: " + food.nf_cholesterol + " mg\n";
-            reply_str += "sodium: " + food.nf_sodium + " mg\n";
-            reply_str += "dietary fiber: " + food.nf_dietary_fiber + " g\n";
-            reply_str += "Sodium: " + food.nf_sodium + " mg\n";
-            reply_str += "Potassium: " + food.nf_potassium + " mg\n";
-            reply_str += "Phosphorus: " + food.nf_p + " mg\n";
+            reply_str += food.serving_qty + " " + food.serving_unit + " of " + food.food_name + " : ";
+            reply_str += "weight: " + food.serving_weight_grams + " g contain: , ";
+            reply_str += "calories: " + food.nf_calories + " kJ , ";
+            reply_str += "total fat: " + food.nf_total_fat + " g , ";
+            reply_str += "saturated fat: " + food.nf_saturated_fat + " g , ";
+            reply_str += "protein: " + food.nf_protein + " g , ";
+            reply_str += "sugars: " + food.nf_sugars + " g , ";
+            reply_str += "total carbohydrate: " + food.nf_total_carbohydrate + " g , ";
+            reply_str += "dietary fiber: " + food.nf_dietary_fiber + " g , ";
+            reply_str += "cholesterol: " + food.nf_cholesterol + " mg , ";
+            reply_str += "sodium: " + food.nf_sodium + " mg , ";
+            reply_str += "dietary fiber: " + food.nf_dietary_fiber + " g , ";
+            reply_str += "Sodium: " + food.nf_sodium + " mg , ";
+            reply_str += "Potassium: " + food.nf_potassium + " mg , ";
+            reply_str += "Phosphorus: " + food.nf_p + " mg";
             return reply_str;
         }
         else {
