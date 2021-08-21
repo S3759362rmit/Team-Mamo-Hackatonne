@@ -43,9 +43,17 @@ class MessageParser {
             else {
                 this.actionProvider.handleNutriQuery(lowerCaseMessage);
             }
+        }
 
+        if (this.constructor.state == "recipe") {
 
-
+            if (quitWords.some(v => lowerCaseMessage.includes(v))) {
+                this.actionProvider.handleReturn();
+                this.constructor.setState("initial");
+            }
+            else {
+                this.actionProvider.handleRecipeQuery(lowerCaseMessage);
+            }
         }
 
 

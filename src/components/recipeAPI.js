@@ -27,10 +27,13 @@ const getRecipe = (query) => {
 
     const showReply = (reply) => {
         if (reply) {
-            const food = reply.foods[0];
 
-            let reply_str = "1";
-            return reply_str;
+            const recipes = reply.hits;
+
+            let result = [];
+            result = recipes.map(recipe => {
+            return recipe["recipe"]["label"] + "\n\n"});
+            return result;
         }
         else {
             return "Sorry, I didn't get that, please try again.";

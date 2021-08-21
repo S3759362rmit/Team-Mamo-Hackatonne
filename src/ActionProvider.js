@@ -7,15 +7,18 @@ class ActionProvider {
         this.setState = setStateFunc;
     }
 
-
     greet() {
         const greetingMessage = this.createChatBotMessage("Hi, friend.")
         this.updateChatbotState(greetingMessage)
     };
 
-    handleNutrition() {
+    handleNutrition = () => {
         const message = this.createChatBotMessage(
-            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
+            "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:",
+            {
+                // widget: "javascriptLinks",
+            }
+        );
 
         this.updateChatbotState(message);
 
@@ -30,18 +33,22 @@ class ActionProvider {
     };
 
 
-    handleRecipe() {
+    handleRecipe = () => {
 
         const message = this.createChatBotMessage(
             "Fantastic, now just tell me what food you ate, and I will show you its nutritional components:");
 
+        this.handleRecipeQuery();
         this.updateChatbotState(message);
     };
 
     handleRecipeQuery(query) {
-        getRecipe(query).then(res => {
-            this.updateChatbotState(this.createChatBotMessage(res));
-        });
+        if(query !== "recipe")
+        {
+            getRecipe(query).then(res => {
+                this.updateChatbotState(this.createChatBotMessage(res));
+            });
+        }
     }
 
     handleReturn = () => {
