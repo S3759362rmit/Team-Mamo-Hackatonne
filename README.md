@@ -19,26 +19,26 @@ Check out this link for further information: https://docs.npmjs.com/downloading-
 
 1. Clone the repo
 
-#### `git clone https://github.com/S3759362rmit/Team-Mamo-Hackatonne.git`
+##### `git clone https://github.com/S3759362rmit/Team-Mamo-Hackatonne.git`
 
 2. Go to the app directory:
 
-#### `cd Team-Mamo-Hackatonne`
+##### `cd Team-Mamo-Hackatonne`
 
 3. Install NPM packages:
 
-#### `npm install`
+##### `npm install`
 
 4. Install Bootstrap and Axios:
 
-#### `npm install react-bootstrap@next bootstrap@5.1.0`
-#### `npm install axios`
+##### `npm install react-bootstrap@next bootstrap@5.1.0`
+##### `npm install axios`
 
 ### Running
 
 In the project directory, you can run:
 
-#### `npm start`
+##### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
